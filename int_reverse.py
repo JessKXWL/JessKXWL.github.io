@@ -52,6 +52,8 @@ class Solution2:
         else:
             return -self.reverse(-a)
 
+        # return result if result_value <= 2**31-1 else 0
+
 if __name__ == "__main__":
     s = Solution()
     m = s.reverse(120)
