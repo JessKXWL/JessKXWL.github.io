@@ -78,6 +78,23 @@ class Solution:
         result = mergeSort(l1)
         return result
 
+class Solution1:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if not l1:
+            return l2
+        if not l2:
+            return l1
+        head = tmp = ListNode(-1)
+        while l1 and l2:
+            if l1.val>l2.val:
+                tmp.next = l2
+                l2 = l2.next
+            else:
+                tmp.next = l1
+                l1 = l1.next
+            tmp = tmp.next
+        tmp.next = l1 if l1 else l2
+        return head.next
 
 if __name__ == '__main__':
     l1 = ListNode(1)
@@ -86,7 +103,7 @@ if __name__ == '__main__':
     l2 = ListNode(1)
     l2.next = ListNode(3)
     l2.next.next = ListNode(4)
-    so = Solution()
+    so = Solution1()
     l3 = so.mergeTwoLists(l1,l2)
     p = l3
     while p!=None:
